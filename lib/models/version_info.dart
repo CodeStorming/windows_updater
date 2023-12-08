@@ -5,7 +5,7 @@ class VersionInfo with _$VersionInfo {
   VersionInfo._();
 
   factory VersionInfo({
-    required BuildInfo? testing,
+    required BuildInfo? test,
     required BuildInfo? release,
   }) = _VersionInfo;
 

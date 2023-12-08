@@ -20,7 +20,7 @@ VersionInfo _$VersionInfoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$VersionInfo {
-  BuildInfo? get testing => throw _privateConstructorUsedError;
+  BuildInfo? get test => throw _privateConstructorUsedError;
   BuildInfo? get release => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,9 +35,9 @@ abstract class $VersionInfoCopyWith<$Res> {
           VersionInfo value, $Res Function(VersionInfo) then) =
       _$VersionInfoCopyWithImpl<$Res, VersionInfo>;
   @useResult
-  $Res call({BuildInfo? testing, BuildInfo? release});
+  $Res call({BuildInfo? test, BuildInfo? release});
 
-  $BuildInfoCopyWith<$Res>? get testing;
+  $BuildInfoCopyWith<$Res>? get test;
   $BuildInfoCopyWith<$Res>? get release;
 }
 
@@ -54,13 +54,13 @@ class _$VersionInfoCopyWithImpl<$Res, $Val extends VersionInfo>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? testing = freezed,
+    Object? test = freezed,
     Object? release = freezed,
   }) {
     return _then(_value.copyWith(
-      testing: freezed == testing
-          ? _value.testing
-          : testing // ignore: cast_nullable_to_non_nullable
+      test: freezed == test
+          ? _value.test
+          : test // ignore: cast_nullable_to_non_nullable
               as BuildInfo?,
       release: freezed == release
           ? _value.release
@@ -71,13 +71,13 @@ class _$VersionInfoCopyWithImpl<$Res, $Val extends VersionInfo>
 
   @override
   @pragma('vm:prefer-inline')
-  $BuildInfoCopyWith<$Res>? get testing {
-    if (_value.testing == null) {
+  $BuildInfoCopyWith<$Res>? get test {
+    if (_value.test == null) {
       return null;
     }
 
-    return $BuildInfoCopyWith<$Res>(_value.testing!, (value) {
-      return _then(_value.copyWith(testing: value) as $Val);
+    return $BuildInfoCopyWith<$Res>(_value.test!, (value) {
+      return _then(_value.copyWith(test: value) as $Val);
     });
   }
 
@@ -102,10 +102,10 @@ abstract class _$$VersionInfoImplCopyWith<$Res>
       __$$VersionInfoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({BuildInfo? testing, BuildInfo? release});
+  $Res call({BuildInfo? test, BuildInfo? release});
 
   @override
-  $BuildInfoCopyWith<$Res>? get testing;
+  $BuildInfoCopyWith<$Res>? get test;
   @override
   $BuildInfoCopyWith<$Res>? get release;
 }
@@ -121,13 +121,13 @@ class __$$VersionInfoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? testing = freezed,
+    Object? test = freezed,
     Object? release = freezed,
   }) {
     return _then(_$VersionInfoImpl(
-      testing: freezed == testing
-          ? _value.testing
-          : testing // ignore: cast_nullable_to_non_nullable
+      test: freezed == test
+          ? _value.test
+          : test // ignore: cast_nullable_to_non_nullable
               as BuildInfo?,
       release: freezed == release
           ? _value.release
@@ -140,19 +140,19 @@ class __$$VersionInfoImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$VersionInfoImpl extends _VersionInfo {
-  _$VersionInfoImpl({required this.testing, required this.release}) : super._();
+  _$VersionInfoImpl({required this.test, required this.release}) : super._();
 
   factory _$VersionInfoImpl.fromJson(Map<String, dynamic> json) =>
       _$$VersionInfoImplFromJson(json);
 
   @override
-  final BuildInfo? testing;
+  final BuildInfo? test;
   @override
   final BuildInfo? release;
 
   @override
   String toString() {
-    return 'VersionInfo(testing: $testing, release: $release)';
+    return 'VersionInfo(test: $test, release: $release)';
   }
 
   @override
@@ -160,13 +160,13 @@ class _$VersionInfoImpl extends _VersionInfo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$VersionInfoImpl &&
-            (identical(other.testing, testing) || other.testing == testing) &&
+            (identical(other.test, test) || other.test == test) &&
             (identical(other.release, release) || other.release == release));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, testing, release);
+  int get hashCode => Object.hash(runtimeType, test, release);
 
   @JsonKey(ignore: true)
   @override
@@ -184,7 +184,7 @@ class _$VersionInfoImpl extends _VersionInfo {
 
 abstract class _VersionInfo extends VersionInfo {
   factory _VersionInfo(
-      {required final BuildInfo? testing,
+      {required final BuildInfo? test,
       required final BuildInfo? release}) = _$VersionInfoImpl;
   _VersionInfo._() : super._();
 
@@ -192,7 +192,7 @@ abstract class _VersionInfo extends VersionInfo {
       _$VersionInfoImpl.fromJson;
 
   @override
-  BuildInfo? get testing;
+  BuildInfo? get test;
   @override
   BuildInfo? get release;
   @override

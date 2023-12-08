@@ -15,7 +15,7 @@ class WindowsUpdater extends GetxController {
   late VersionInfo _versionInfo;
   RxnString updateMessage = RxnString();
 
-  Dio _dio = Dio();
+  final Dio _dio = Dio();
 
   void setFetchUrl(String url) {
     _fetchUrl = url;
@@ -30,7 +30,7 @@ class WindowsUpdater extends GetxController {
     _versionInfo = VersionInfo.fromJson(res.data);
   }
 
-  String? get nextVersion => (isRelease) ? _versionInfo.release?.lastVersion : _versionInfo.testing?.lastVersion;
+  String? get nextVersion => (isRelease) ? _versionInfo.release?.lastVersion : _versionInfo.test?.lastVersion;
 
   Future<void> installUpdate(String url) async {
     var res = await _dio.get(url);

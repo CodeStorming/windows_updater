@@ -8,9 +8,9 @@ part of 'models.dart';
 
 _$VersionInfoImpl _$$VersionInfoImplFromJson(Map<String, dynamic> json) =>
     _$VersionInfoImpl(
-      testing: json['testing'] == null
+      test: json['test'] == null
           ? null
-          : BuildInfo.fromJson(json['testing'] as Map<String, dynamic>),
+          : BuildInfo.fromJson(json['test'] as Map<String, dynamic>),
       release: json['release'] == null
           ? null
           : BuildInfo.fromJson(json['release'] as Map<String, dynamic>),
@@ -18,7 +18,7 @@ _$VersionInfoImpl _$$VersionInfoImplFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$VersionInfoImplToJson(_$VersionInfoImpl instance) =>
     <String, dynamic>{
-      'testing': instance.testing,
+      'test': instance.test,
       'release': instance.release,
     };
 
