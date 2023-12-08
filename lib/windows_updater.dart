@@ -26,7 +26,7 @@ class WindowsUpdater extends GetxController {
   }
 
   Future<void> fetchUpdates() async {
-    var res = await _dio.get(_fetchUrl);
+    var res = await _dio.get(_fetchUrl, options: Options(responseType: ResponseType.bytes));
     _versionInfo = VersionInfo.fromJson(res.data);
   }
 
