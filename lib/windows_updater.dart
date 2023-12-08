@@ -13,7 +13,7 @@ class WindowsUpdater extends GetxController {
   final bool isRelease;
   late String _fetchUrl;
   late VersionInfo _versionInfo;
-  RxnString updateMessage = RxnString();
+  RxnString updateMessage = RxnString('updater_checking_update');
 
   final Dio _dio = Dio();
 
