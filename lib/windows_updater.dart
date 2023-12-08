@@ -26,14 +26,14 @@ class WindowsUpdater extends GetxController {
   }
 
   Future<void> fetchUpdates() async {
-    var res = await _dio.get(_fetchUrl, options: Options(responseType: ResponseType.bytes));
+    var res = await _dio.get(_fetchUrl);
     _versionInfo = VersionInfo.fromJson(res.data);
   }
 
   String? get nextVersion => (isRelease) ? _versionInfo.release?.lastVersion : _versionInfo.test?.lastVersion;
 
   Future<void> installUpdate(String url) async {
-    var res = await _dio.get(url);
+    var res = await _dio.get(url, options: Options(responseType: ResponseType.bytes));
     updateMessage.value = 'updater_downloaded';
     await Future.delayed(const Duration(milliseconds: 700));
     updateMessage.value = 'updater_updating';
