@@ -12,30 +12,28 @@ class WindowsUpdater extends GetxController {
 
   final bool isRelease;
   late String _fetchUrl;
-  late VersionInfo versionInfo;
+  late VersionInfo _versionInfo;
   RxnString updateMessage = RxnString();
 
-  Dio dio = Dio();
-
-  RxnString currentUpdatingStep = RxnString();
+  Dio _dio = Dio();
 
   void setFetchUrl(String url) {
     _fetchUrl = url;
   }
 
   void setHeaders(Map<String, dynamic> headers) {
-    dio.options.headers = headers;
+    _dio.options.headers = headers;
   }
 
   Future<void> fetchUpdates() async {
-    var res = await dio.get(_fetchUrl);
-    versionInfo = VersionInfo.fromJson(res.data);
+    var res = await _dio.get(_fetchUrl);
+    _versionInfo = VersionInfo.fromJson(res.data);
   }
 
-  String? get nextVersion => (isRelease) ? versionInfo.release?.lastVersion : versionInfo.testing?.lastVersion;
+  String? get nextVersion => (isRelease) ? _versionInfo.release?.lastVersion : _versionInfo.testing?.lastVersion;
 
   Future<void> installUpdate(String url) async {
-    var res = await dio.get(url);
+    var res = await _dio.get(url);
     updateMessage.value = 'updater_downloaded';
     await Future.delayed(const Duration(milliseconds: 700));
     updateMessage.value = 'updater_updating';
