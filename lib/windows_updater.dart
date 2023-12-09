@@ -41,7 +41,7 @@ class WindowsUpdater extends GetxController {
     var file = File('${dir.path}/${Uri(path: url).pathSegments.last}');
     await file.writeAsBytes(res.data);
     OpenFile.open(file.path);
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(milliseconds: 1500));
     updateMessage.value = 'updater_almost';
     await Future.delayed(const Duration(seconds: 2));
   }
