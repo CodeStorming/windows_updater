@@ -43,6 +43,6 @@ class WindowsUpdater extends GetxController {
     OpenFile.open(file.path);
     await Future.delayed(const Duration(milliseconds: 1500));
     updateMessage.value = 'updater_almost';
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(milliseconds: 500));
   }
 }
