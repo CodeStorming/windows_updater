@@ -22,6 +22,7 @@ VersionInfo _$VersionInfoFromJson(Map<String, dynamic> json) {
 mixin _$VersionInfo {
   BuildInfo? get test => throw _privateConstructorUsedError;
   BuildInfo? get release => throw _privateConstructorUsedError;
+  BuildInfo? get mobile => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,10 +36,11 @@ abstract class $VersionInfoCopyWith<$Res> {
           VersionInfo value, $Res Function(VersionInfo) then) =
       _$VersionInfoCopyWithImpl<$Res, VersionInfo>;
   @useResult
-  $Res call({BuildInfo? test, BuildInfo? release});
+  $Res call({BuildInfo? test, BuildInfo? release, BuildInfo? mobile});
 
   $BuildInfoCopyWith<$Res>? get test;
   $BuildInfoCopyWith<$Res>? get release;
+  $BuildInfoCopyWith<$Res>? get mobile;
 }
 
 /// @nodoc
@@ -56,6 +58,7 @@ class _$VersionInfoCopyWithImpl<$Res, $Val extends VersionInfo>
   $Res call({
     Object? test = freezed,
     Object? release = freezed,
+    Object? mobile = freezed,
   }) {
     return _then(_value.copyWith(
       test: freezed == test
@@ -65,6 +68,10 @@ class _$VersionInfoCopyWithImpl<$Res, $Val extends VersionInfo>
       release: freezed == release
           ? _value.release
           : release // ignore: cast_nullable_to_non_nullable
+              as BuildInfo?,
+      mobile: freezed == mobile
+          ? _value.mobile
+          : mobile // ignore: cast_nullable_to_non_nullable
               as BuildInfo?,
     ) as $Val);
   }
@@ -92,6 +99,18 @@ class _$VersionInfoCopyWithImpl<$Res, $Val extends VersionInfo>
       return _then(_value.copyWith(release: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $BuildInfoCopyWith<$Res>? get mobile {
+    if (_value.mobile == null) {
+      return null;
+    }
+
+    return $BuildInfoCopyWith<$Res>(_value.mobile!, (value) {
+      return _then(_value.copyWith(mobile: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -102,12 +121,14 @@ abstract class _$$VersionInfoImplCopyWith<$Res>
       __$$VersionInfoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({BuildInfo? test, BuildInfo? release});
+  $Res call({BuildInfo? test, BuildInfo? release, BuildInfo? mobile});
 
   @override
   $BuildInfoCopyWith<$Res>? get test;
   @override
   $BuildInfoCopyWith<$Res>? get release;
+  @override
+  $BuildInfoCopyWith<$Res>? get mobile;
 }
 
 /// @nodoc
@@ -123,6 +144,7 @@ class __$$VersionInfoImplCopyWithImpl<$Res>
   $Res call({
     Object? test = freezed,
     Object? release = freezed,
+    Object? mobile = freezed,
   }) {
     return _then(_$VersionInfoImpl(
       test: freezed == test
@@ -133,6 +155,10 @@ class __$$VersionInfoImplCopyWithImpl<$Res>
           ? _value.release
           : release // ignore: cast_nullable_to_non_nullable
               as BuildInfo?,
+      mobile: freezed == mobile
+          ? _value.mobile
+          : mobile // ignore: cast_nullable_to_non_nullable
+              as BuildInfo?,
     ));
   }
 }
@@ -140,7 +166,9 @@ class __$$VersionInfoImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$VersionInfoImpl extends _VersionInfo {
-  _$VersionInfoImpl({required this.test, required this.release}) : super._();
+  _$VersionInfoImpl(
+      {required this.test, required this.release, required this.mobile})
+      : super._();
 
   factory _$VersionInfoImpl.fromJson(Map<String, dynamic> json) =>
       _$$VersionInfoImplFromJson(json);
@@ -149,24 +177,27 @@ class _$VersionInfoImpl extends _VersionInfo {
   final BuildInfo? test;
   @override
   final BuildInfo? release;
+  @override
+  final BuildInfo? mobile;
 
   @override
   String toString() {
-    return 'VersionInfo(test: $test, release: $release)';
+    return 'VersionInfo(test: $test, release: $release, mobile: $mobile)';
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$VersionInfoImpl &&
             (identical(other.test, test) || other.test == test) &&
-            (identical(other.release, release) || other.release == release));
+            (identical(other.release, release) || other.release == release) &&
+            (identical(other.mobile, mobile) || other.mobile == mobile));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, test, release);
+  int get hashCode => Object.hash(runtimeType, test, release, mobile);
 
   @JsonKey(ignore: true)
   @override
@@ -185,7 +216,8 @@ class _$VersionInfoImpl extends _VersionInfo {
 abstract class _VersionInfo extends VersionInfo {
   factory _VersionInfo(
       {required final BuildInfo? test,
-      required final BuildInfo? release}) = _$VersionInfoImpl;
+      required final BuildInfo? release,
+      required final BuildInfo? mobile}) = _$VersionInfoImpl;
   _VersionInfo._() : super._();
 
   factory _VersionInfo.fromJson(Map<String, dynamic> json) =
@@ -195,6 +227,8 @@ abstract class _VersionInfo extends VersionInfo {
   BuildInfo? get test;
   @override
   BuildInfo? get release;
+  @override
+  BuildInfo? get mobile;
   @override
   @JsonKey(ignore: true)
   _$$VersionInfoImplCopyWith<_$VersionInfoImpl> get copyWith =>
@@ -325,7 +359,7 @@ class _$BuildInfoImpl extends _BuildInfo {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BuildInfoImpl &&

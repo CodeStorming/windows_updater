@@ -7,6 +7,8 @@ class VersionInfo with _$VersionInfo {
   factory VersionInfo({
     required BuildInfo? test,
     required BuildInfo? release,
+    required BuildInfo? mobile,
+
   }) = _VersionInfo;
 
   factory VersionInfo.fromJson(Map<String, dynamic> json) => _$VersionInfoFromJson(json);

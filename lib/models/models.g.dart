@@ -14,12 +14,16 @@ _$VersionInfoImpl _$$VersionInfoImplFromJson(Map<String, dynamic> json) =>
       release: json['release'] == null
           ? null
           : BuildInfo.fromJson(json['release'] as Map<String, dynamic>),
+      mobile: json['mobile'] == null
+          ? null
+          : BuildInfo.fromJson(json['mobile'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$VersionInfoImplToJson(_$VersionInfoImpl instance) =>
     <String, dynamic>{
       'test': instance.test,
       'release': instance.release,
+      'mobile': instance.mobile,
     };
 
 _$BuildInfoImpl _$$BuildInfoImplFromJson(Map<String, dynamic> json) =>

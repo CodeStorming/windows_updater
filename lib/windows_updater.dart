@@ -30,7 +30,11 @@ class WindowsUpdater extends GetxController {
     _versionInfo = VersionInfo.fromJson(res.data);
   }
 
-  String? get nextVersion => (isRelease) ? _versionInfo.release?.lastVersion : _versionInfo.test?.lastVersion;
+  String? get nextVersion => (isRelease)
+      ? Platform.isAndroid
+          ? _versionInfo.mobile?.lastVersion
+          : _versionInfo.release?.lastVersion
+      : _versionInfo.test?.lastVersion;
 
   Future<void> installUpdate(String url) async {
     var res = await _dio.get(url, options: Options(responseType: ResponseType.bytes));
