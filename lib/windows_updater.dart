@@ -15,7 +15,7 @@ class WindowsUpdater extends GetxController {
   late VersionInfo _versionInfo;
   RxnString updateMessage = RxnString('updater_checking_update');
 
-  final Dio _dio = Dio();
+  final Dio _dio = Dio(BaseOptions(connectTimeout: Duration(seconds: 5)));
 
   void setFetchUrl(String url) {
     _fetchUrl = url;
